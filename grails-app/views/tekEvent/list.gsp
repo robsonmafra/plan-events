@@ -22,8 +22,6 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'tekEvent.id.label', default: 'Id')}" />
-                        
                             <g:sortableColumn property="name" title="${message(code: 'tekEvent.name.label', default: 'Name')}" />
                         
                             <g:sortableColumn property="city" title="${message(code: 'tekEvent.city.label', default: 'City')}" />
@@ -39,10 +37,11 @@
                     <tbody>
                     <g:each in="${tekEventInstanceList}" status="i" var="tekEventInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${tekEventInstance.id}">${fieldValue(bean: tekEventInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: tekEventInstance, field: "name")}</td>
+                            <td>
+								<g:link action="show" id="${tekEventInstance.id}">
+									${fieldValue(bean: tekEventInstance, field: "name")}
+								</g:link>
+							</td>
                         
                             <td>${fieldValue(bean: tekEventInstance, field: "city")}</td>
                         
